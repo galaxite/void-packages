@@ -2613,6 +2613,7 @@ liballegro_physfs.so.5.2 allegro5-5.2.1_1
 liballegro_video.so.5.2 allegro5-5.2.1_1
 liballegro_main.so.5.2 allegro5-5.2.1_1
 libKF5DBusAddons.so.5 kdbusaddons-5.26.0_1
+libsystemsettingsview.so.3 systemsettings-5.11.5_2
 libmono-profiler-cov.so.0 mono-4.0.1.44_2
 libmono-profiler-aot.so.0 mono-4.0.1.44_2
 libmono-profiler-iomap.so.0 mono-4.0.1.44_2
@@ -3044,3 +3045,10 @@ libVkLayer_parameter_validation.so vulkan-validation-layers-1.0.57.0_1
 libVkLayer_threading.so vulkan-validation-layers-1.0.57.0_1
 libVkLayer_unique_objects.so vulkan-validation-layers-1.0.57.0_1
 libVkLayer_utils.so vulkan-validation-layers-1.0.57.0_1
+libembb_mtapi_cpp.so embb-devel-1.0.0_1
+libembb_mtapi_c.so embb-devel-1.0.0_1
+libembb_mtapi_network_c.so embb-devel-1.0.0_1
+libembb_base_cpp.so embb-devel-1.0.0_1
+libembb_base_c.so embb-devel-1.0.0_1
+libmatio.so.4 matio-1.5.11_1
+libhpdf.so Haru-devel-2.3.0_1
