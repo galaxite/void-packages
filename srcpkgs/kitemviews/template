@@ -1,6 +1,6 @@
 # Template file for 'kitemviews'
 pkgname=kitemviews
-version=5.41.0
+version=5.43.0
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -11,7 +11,7 @@ maintainer="Denis Revin <denis.revin@gmail.com>"
 license="LGPL-2"
 homepage="https://projects.kde.org/projects/frameworks/kitemviews"
 distfiles="http://download.kde.org/stable/frameworks/${version%.*}/${pkgname}-${version}.tar.xz"
-checksum=ce08179e9c4d5e3df095eb3af848c1005901abd6b9e45cc359810f704bbd8704
+checksum=304cbdd832b12c9e2b08f29efc5d876a9de60076d444c3d502849fdc21ec86a7
 
 if [ -n "$CROSS_BUILD$" ]; then
 	hostmakedepends+=" qt5-qmake qt5-host-tools qt5-tools-devel"

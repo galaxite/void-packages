@@ -1,6 +1,6 @@
 # Template file for 'kdelibs4support'
 pkgname=kdelibs4support
-version=5.41.0
+version=5.43.0
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -14,7 +14,7 @@ maintainer="Denis Revin <denis.revin@gmail.com>"
 license="LGPL-2"
 homepage="https://projects.kde.org/projects/frameworks/kdelibs4support"
 distfiles="http://download.kde.org/stable/frameworks/${version%.*}/portingAids/${pkgname}-${version}.tar.xz"
-checksum=242f748a199e5eb3c63a2f02618de9e68c83b6385473d6dd9ada3304111f77d6
+checksum=9055714b63f2995c8d22c33683b3b7713016e5551ccb2502d6c3dbbbcd2093e7
 
 if [ -n "$CROSS_BUILD" ]; then
 	makedepends+=" qt5-tools-devel"

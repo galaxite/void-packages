@@ -1,6 +1,6 @@
 # Template file for 'kjsembed'
 pkgname=kjsembed
-version=5.41.0
+version=5.43.0
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -11,7 +11,7 @@ maintainer="Denis Revin <denis.revin@gmail.com>"
 license="LGPL-2"
 homepage="https://projects.kde.org/projects/frameworks/kjsembed"
 distfiles="http://download.kde.org/stable/frameworks/${version%.*}/portingAids/${pkgname}-${version}.tar.xz"
-checksum=a71f358ff922d56b5fe7cbd19a0e9183106d1961883ca54f1db2e5d47281abef
+checksum=1e9a97c03007e20aaad631cf1cfcdc3d5950cab5dd9aa189b6fad03c21e70c86
 
 if [ -n "$CROSS_BUILD" ]; then
 	hostmakedepends+=" qt5-host-tools qt5-qmake python kdoctools"

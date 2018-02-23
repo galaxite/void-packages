@@ -1,13 +1,13 @@
 # Template build file for 'firefox'.
 pkgname=firefox
-version=57.0.4
+version=58.0.2
 revision=1
 short_desc="Mozilla Firefox web browser"
 maintainer="Juan RP <xtraeme@voidlinux.eu>"
 homepage="https://www.mozilla.org/firefox/"
 license="MPL-2.0, GPL-2, LGPL-2.1"
 distfiles="${MOZILLA_SITE}/${pkgname}/releases/${version}/source/${pkgname}-${version}.source.tar.xz"
-checksum=97cced69abfd5c57d968f0095631f86beff4f7b61883edd5a4f207e7f9c43b33
+checksum="2b7794e4c2a24fa388f3acb2956c96bb2c3eae455467f0e386788ebaea7240c3"
 
 only_for_archs="i686 i686-musl x86_64 x86_64-musl"
 lib32disabled=yes
@@ -20,18 +20,17 @@ makedepends="nss-devel libjpeg-turbo-devel gtk+-devel gtk+3-devel icu-devel
  libXdamage-devel $(vopt_if alsa alsa-lib-devel)
  $(vopt_if dbus dbus-glib-devel) $(vopt_if pulseaudio pulseaudio-devel)
  $(vopt_if startup_notification startup-notification-devel)
- $(vopt_if xscreensaver libXScrnSaver-devel)"
+ $(vopt_if xscreensaver libXScrnSaver-devel)
+ $(vopt_if sndio sndio-devel)"
 depends="nss>=3.33 desktop-file-utils hicolor-icon-theme"
 conflicts="firefox-esr>=0"
 
-build_options="alsa dbus pulseaudio startup_notification xscreensaver"
-build_options_default="alsa dbus pulseaudio startup_notification xscreensaver"
+build_options="alsa dbus pulseaudio startup_notification xscreensaver sndio"
+build_options_default="alsa dbus pulseaudio startup_notification xscreensaver sndio"
 
 post_extract() {
 	case "$XBPS_TARGET_MACHINE" in
 	*-musl)
-		# fix musl rust triplet
-		sed -i "s/\(x86_64-unknown-linux\)-gnu/\1-musl/" build/moz.configure/rust.configure
 		cp "${FILESDIR}/stab.h" toolkit/crashreporter/google-breakpad/src/
 		;;
 	esac
@@ -51,6 +50,13 @@ do_build() {
 	*-musl)
 		echo "ac_add_options --disable-jemalloc" >>.mozconfig
 		echo "ac_add_options --disable-gold" >>.mozconfig
+		;;
+	esac
+
+	case "$XBPS_TARGET_MACHINE" in
+	x86_64-musl)
+		echo "ac_add_options --host=x86_64-unknown-linux-musl" >>.mozconfig
+		echo "ac_add_options --target=x86_64-unknown-linux-musl" >>.mozconfig
 		;;
 	esac
 
@@ -85,16 +91,18 @@ do_build() {
 ac_add_options --with-google-api-keyfile="${wrksrc}/google-api-key"
 ac_add_options --with-mozilla-api-keyfile="${wrksrc}/mozilla-api-key"
 ac_add_options $(vopt_enable alsa)
+ac_add_options $(vopt_enable sndio)
 ac_add_options $(vopt_enable dbus)
 ac_add_options $(vopt_enable dbus necko-wifi)
 ac_add_options $(vopt_enable pulseaudio)
 ac_add_options $(vopt_enable startup_notification startup-notification)
 !
 
-	make -f client.mk build
+	rm -f old-configure
+	./mach build
 }
 do_install() {
-	make -f client.mk DESTDIR="$DESTDIR" install
+	DESTDIR="$DESTDIR" ./mach install
 
 	vinstall ${FILESDIR}/vendor.js 644 usr/lib/firefox/browser/defaults/preferences
 	vinstall ${FILESDIR}/firefox.desktop 644 usr/share/applications

@@ -1,6 +1,6 @@
 # Template file for 'pkgconf'
 pkgname=pkgconf
-version=1.4.0
+version=1.4.2
 revision=1
 conflicts="pkg-config"
 build_style=gnu-configure
@@ -11,7 +11,7 @@ maintainer="Enno Boland <gottox@voidlinux.eu>"
 license="MIT"
 homepage="https://github.com/pkgconf/pkgconf"
 distfiles="https://distfiles.dereferenced.org/pkgconf/$pkgname-$version.tar.xz"
-checksum=1d112ff35dad516ffbfbdb013df3a035140618fe7632ec44ffa894a9c713301b
+checksum=bab39371d4ab972be1d539a8b10b6cc21f8eafc97f617102e667e82bd32eb234
 
 post_install() {
 	vlicense COPYING

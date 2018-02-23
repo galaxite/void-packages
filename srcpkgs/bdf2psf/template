@@ -1,6 +1,6 @@
 # Template file for 'bdf2psf'
 pkgname=bdf2psf
-version=1.175
+version=1.178
 revision=1
 wrksrc="console-setup"
 depends="perl"
@@ -9,7 +9,7 @@ maintainer="Leah Neukirchen <leah@vuxu.org>"
 license="GPL-2"
 homepage="https://packages.debian.org/sid/bdf2psf"
 distfiles="${DEBIAN_SITE}/main/c/console-setup/console-setup_${version}.tar.xz"
-checksum=8ebb79d826cdfc4c4466a2021f2a85742df4f52a9f9bfe6e4f5bc67c6fcf8b8c
+checksum=9e9550d6ae9668a3274738c904cf01063e81a0419fcedf2a82e2b49c7d7b082a
 noarch=yes
 
 post_extract() {

@@ -1,6 +1,6 @@
 # Template file for 'mblaze'
 pkgname=mblaze
-version=0.3
+version=0.3.2
 revision=1
 build_style=gnu-makefile
 short_desc="Maildir-focused command line mail client"
@@ -8,7 +8,7 @@ maintainer="Leah Neukirchen <leah@vuxu.org>"
 license="Public Domain, MIT"
 homepage="https://github.com/chneukirchen/mblaze"
 distfiles="http://chneukirchen.org/releases/${pkgname}-${version}.tar.gz"
-checksum=006ca3e278480001f0ab669f78626cf638b02a275c94ab636044f2ed498295e2
+checksum=c402dc58c090a9a9b005f016773b44e22734ce0e40899294abdf2b8ec310b6f5
 
 post_install() {
 	vbin contrib/mencrypt
